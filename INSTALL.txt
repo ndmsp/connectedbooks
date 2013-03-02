@@ -1,0 +1,45 @@
+****************************************************************************
+ConnectedBooks 1.0
+Gestion web de bibliothèque
+http://connectedbooks.web-diot.fr
+****************************************************************************
+
+Date: Jeudi 01/11/2012
+Time: 10:15:23
+Time Zone: (UTC +01:00)
+File version: 1.0
+
+I. Description
+	
+	Merci d'avoir téléchargé ConnectedBooks ! ConnectedBooks est une application PHP indépendante permettant de gérer un catalogue important de livres. Sa spécificité est la recherche par ISBN lors de l'import: en entrant le numéro ISBN du livre, l'application se connecte au serveur Européen pour télécharger les informations du livre. Ainsi, la fiche de chaque livre est créée en quelques secondes !
+	
+	
+II. Installation
+	
+	1. Téléchargez la dernière version de l'application à partir de: http://connectedbooks.web-diot.fr/download.php
+	
+	2. Dézippez le fichier compressé téléchargé, et placez le dans le dossier connectedbooks de votre serveur.
+	
+	3. Ouvrez l'assistant d'installation à l'adresse: http://monsite.fr/connectedbooks/install et suivez les étapes.
+	
+	4. A la fin de l'installation, n'oubliez pas de supprimer le dossier install/ de votre serveur !
+	
+	
+III. Comment utiliser l'appli
+
+	Pour administrer l'application, cliquez sur le lien "Administration" en bas de chaque page. Pour vous connecter, il vous suffit de rentrer les informations de connexion enregistrées lors de l'installation. Vous pouvez alors, à partir de l'administration, gérer tout le site !
+	
+	
+IV. Licence d'utilisation
+
+	Cette application est libre de droits: vous pouvez la modifier et l'utiliser comme vous le souhaitez, à condition de laisser la mention de copyright insérée sur chaque page.
+	
+
+V. Ressources supplémentaires
+
+	Pour toutes questions, vous pouvez consulter la FAQ, présente sur le site où vous avez téléchargé l'appli. Si vous avez des questions supplémentaires, n'hésitez pas à utiliser le formulaire de contact du site, ou envoyez moi un mail directement sur mon adresse: tom_11@hotmail.fr
+	
+	<http://connectedbooks.web-diot.fr>
+	<http://connectedbooks.web-diot.fr/faq.html>
+	<http://connectedbooks.web-diot.fr/contacts.html>
+	<http://connectedbooks.web-diot.fr/about.html>

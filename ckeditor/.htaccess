@@ -1,0 +1,3 @@
+AddType application/x-javascript .js
+AddType text/css .css
+AddType text/xml .xml
