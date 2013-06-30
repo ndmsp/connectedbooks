@@ -4,7 +4,9 @@
 	
 	// Connexion à la base de données
 	try{$bdd = new PDO('mysql:host='.$hote.';dbname='.$base.'', ''.$user.'', ''.$pass.'');}
-	catch(Exception $e){die('Erreur : ' . $e->getMessage());}
+	catch(Exception $e){
+		die('Erreur : ' . $e->getMessage() . '<br /><b>Etes vous passé par le gestionnaire d\'installation ? Rendez vous vite dans le dossier install via votre navigateur !</b>');
+	}
 	
 	// Insertion des bibliothèques
 	require_once('include/function.inc.php');

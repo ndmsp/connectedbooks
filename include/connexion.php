@@ -1,5 +1,5 @@
 <?php
 	$hote = 'localhost';
-	$base = 'isbn';
+	$base = 'test';
 	$user = 'root';
 	$pass = '';

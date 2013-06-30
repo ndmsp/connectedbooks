@@ -46,7 +46,7 @@ class Livre{
 
     // Pattern books-by-isbn.com
     private static $_bookIsbn = 'http://www.books-by-isbn.com/';
-    private static $_bookGoogle = 'https://www.googleapis.com/books/v1/volumes?q=:isbn=';
+    private static $_bookGoogle = 'http://www.google.com/books/feeds/volumes?q=';
 
     // Pattern Amazon
     private static $_amazonPattern = '/<p class="alink"><a href="(.*)">details/';
@@ -75,12 +75,9 @@ class Livre{
     private static $_coverPattern1 = '#" width="(.*)" height="(.*)" alt="(.*)#';
 
     // Pattern Resume
-    private static $_resumePattern = '/"description": "(.*)",/';
-    private static $_resumePattern1 = '#"description": "(.*)",#';
-
-    // Pattern Note
-    private static $_notePattern = '/<div id="averageCustomerReviewRating" class="gry txtnormal">(.*) étoiles sur 5<\/div>/';
-    private static $_notePattern1 = '#<div id="averageCustomerReviewRating" class="gry txtnormal">(.*) étoiles sur 5<\/div>#';
+    // private static $_resumePattern = '/"description": "(.*)",/';
+    private static $_resumePattern = '#<dc:description>(.*)</dc:description>#';
+    private static $_resumePattern1 = '#</dc:description>(.*)#';
 
 
     public function __construct($db)
@@ -206,7 +203,8 @@ class Livre{
 
     public function accent($str){
         // Encoding problems could be resolved with this function (UTF_8/ISO)
-		$str = htmlentities($str, ENT_COMPAT, 'UTF-8');
+		// $str = htmlentities($str, ENT_COMPAT, 'UTF-8');
+		$str = html_entity_decode($str);
         return $str;
     }
 
@@ -234,7 +232,6 @@ class Livre{
             'cover' => self::$_bookIsbn.$this->ParsData(self::$_coverPattern, $fichierIsbn, self::$_coverPattern1, 0),
             'collection' => $this->accent($this->ParsData(self::$_collectionPattern, $fichierIsbn, self::$_collectionPattern1, 0)),
             'note' => '',
-            // 'note' => $this->litDonnees(self::$_notePattern, $fichierAmazon, self::$_notePattern1, 0),
             'isbn' => $isbn
         );
 		
@@ -295,7 +292,7 @@ class Livre{
         $q->bindValue(':collection', $this->_collection);
         $q->bindValue(':isbn', $this->_isbn, PDO::PARAM_INT);
 
-        $q->execute() OR DIE('<br /><span style="color: red; font-weight: bold;">A mistake happend when PHP was adding the element to the database...');
+        $q->execute() OR DIE('<br /><span style="color: red; font-weight: bold;">An error occured while adding the book in the database...');
 
         // Add the ID value from the database to the object
 		$this->_id = $this->_db->lastInsertId('id');

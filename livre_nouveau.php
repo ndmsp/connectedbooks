@@ -81,6 +81,7 @@
 								   $(xml).find('BookData').each(
 								   function()
 								   {
+										var isbn = $('#isbn').val();
 										$('#isbn').removeClass('error');
 										$('#isbn').addClass('text');
 										
@@ -115,7 +116,8 @@
 										$('#resume').addClass('text');
 										
 										var titre = encodeURIComponent(title);
-										var fnac = "<a href=\"http://recherche.fnac.com/Search/SearchResult.aspx?SCat=0%211&Search="+titre+"&sft=1&submitbtn=Ok\" target=\"_blank\" title=\"Consulter ce livre sur fnac.com\"><img class=\"ok\" src=\"img/fnac.jpg\" height=\"25\" width=\"25\" /></a><br />"
+										
+										var fnac = "<a href=\"http://recherche.fnac.com/Search/SearchResult.aspx?SCat=0%211&Search="+titre+"&sft=1&submitbtn=Ok\" target=\"_blank\" title=\"Consulter ce livre sur fnac.com\"><img class=\"ok\" src=\"img/fnac.jpg\" height=\"25\" width=\"25\" /></a><br /> <br /><br /><a href=\"http://books.google.fr/books?isbn="+isbn+"\" target=\"_blank\" title=\"Consulter ce livre sur Google Books\"><img class=\"ok\" src=\"img/books.jpg\" height=\"25\" width=\"25\" /></a><br />"
 										
 										$("#fnac").html(fnac);
 

@@ -37,13 +37,43 @@
 			
 			<p>&nbsp;</p>
 			
-			<p>A noter que si vous avez un jour besoin de changer, il vous sera plus pratique de passer par le fichier d'enregistrement: vous pourrez modifier le fichier <b>connexion.php</b> se situant dans le dossier <b>include</b>... Mais finissons notre connexion avant de parler du futur !</p>
+			<p>A noter que si vous avez un jour besoin de changer, il vous sera plus pratique de passer par le fichier d'enregistrement: vous pourrez modifier le fichier <b>connexion.php</b> se situant dans le dossier <b>include</b>... Mais finissons notre connexion avant de parler du futur ! Nous allons maintenant tester deux paramètres de votre serveur: le logiciel va d'abord regarder si il a le droit de se connecter à la base de données, puis il vérifiera qu'il peut correctement se connecter à internet. En fait, c'est déjà fait ! Voici les résultats:</p>
+			
 			<p>&nbsp;</p>
+			
 			<p>
-				<?php 
-					echo (defined('PDO::ATTR_DRIVER_NAME')) ? ('Le plugin PDO est activé sur votre serveur, ce qui est parfait pour la suite !') : ('Le plugin PDO n\'est pas activé sur votre serveur, ce qui est assez problématique pour la suite... Merci de <a href="http://www.commentcamarche.net/forum/affich-18243296-easyphp-et-pdo#vote_18243581" target="_blank">l\'activer</a> pour continuer');
-				?>
+				<table cellpadding="10" cellspacing="1" width="100%"> 
+						
+					<tr> 
+						<th>Test</th>
+						<th>Résultat</th>
+					</tr> 
+					
+					<tr> 
+						<th>Vérification de la bonne connexion à la base de données avec la méthode PDO</th> 
+						<td>
+							<?php 
+								echo (defined('PDO::ATTR_DRIVER_NAME')) ? ('Le plugin PDO est activé sur votre serveur, ce qui est parfait pour la suite !') : ('Le plugin PDO n\'est pas activé sur votre serveur, ce qui est assez problématique pour la suite... Merci de <a href="http://www.commentcamarche.net/forum/affich-18243296-easyphp-et-pdo#vote_18243581" target="_blank">l\'activer</a> pour continuer');
+							?>
+						</td> 
+					</tr>
+					
+					<tr>
+						<th>Vérification de la connexion internet requise pour le fonctionnement de l'application</th>
+						<td>
+							<?php
+								$content = @file_get_contents('http://www.google.fr');
+								if($content === FALSE) {echo 'Il semble y avoir un problème avec la connexion: vérifiez que vous êtes bien connecté au réseau internet. D\'autre part, il se peut que votre serveur n\'accepte pas les requêtes de l\'application: il faut activer la fonction <i>allow_url_fopen</i> dans le fichier php.ini, en passant le paramètre sur on (cf: <a href="http://www.lecoindunet.com/activer-la-fonction-filegetcontent-sur-hebergement-1and1-mutualise-63" target="_blank">Activer la fonction file_get_contents</a>';}
+								else{echo 'La connexion est parfaite ! L\'algorithme de reconnaissance du numéro ISBN va très bien fonctionner !';}
+							?>
+						</td>
+					</tr>
+				
+				</table> 
 			</p>
+			
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 				
 			<?php
