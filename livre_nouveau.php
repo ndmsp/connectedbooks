@@ -75,7 +75,7 @@
 						$('#preload').hide();
 							$.ajax({
 								url: "isbn.php",
-								data: "isbn="+$('#isbn').val(), // données ? transmettre
+								data: "isbn="+$('#isbn').val(), // donnÃ©es ? transmettre
 								success: function(xml)
 								{
 								   $(xml).find('BookData').each(
@@ -204,13 +204,13 @@
 
 							<tr>
 								 <td>
-									  <label for="isbn">Numéro ISBN</label>
+									  <label for="isbn">NumÃ©ro ISBN</label>
 								 </td>
 								 <td>
 									  <input type="text" name="isbn" id="isbn" class="text" autocomplete="off" />
 								 </td>
 								 <td id="preload">
-									  <img  class="ok" src="img/calculator_add.png" title="Cliquer pour télécharger les données" src="" />
+									  <img  class="ok" src="img/calculator_add.png" title="Cliquer pour tÃ©lÃ©charger les donnÃ©es" src="" />
 								 </td>
 								 <td id="load" style="display: none;">
 									  <img src="img/arrow_refresh.png" title="Chargement en cours..." />
@@ -237,7 +237,7 @@
 
 							<tr>
 								 <td>
-									  <label for="annee">Année de parution</label>
+									  <label for="annee">AnnÃ©e de parution</label>
 								 </td>
 								 <td>
 									  <input type="text" name="annee" id="annee" class="text" />
@@ -276,7 +276,7 @@
 										<?php
 											for($i=0;$i<count($categories);$i++){
 												echo '<option value="'.$key[$i].'">';
-												echo $categories[$i+1].'</option>';
+												echo $categories[$key[$i]].'</option>';
 											}
 										?>
 									</select>
@@ -285,7 +285,7 @@
 
 							<tr>
 								 <td>
-									  <label for="resume">Résumé de l'oeuvre</label>
+									  <label for="resume">RÃ©sumÃ© de l'oeuvre</label>
 								 </td>
 								 <td>
 									  <textarea name="resume" id="resume" rows="10" cols="70"></textarea>
